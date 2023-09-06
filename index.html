@@ -1,0 +1,107 @@
+<html>
+<head>
+	<title>3D 🧊</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<link rel='stylesheet' type='text/css' href='viewer.css'/>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/daa834e337.js" crossorigin="anonymous"></script>
+	<style>
+	
+	body {
+		padding: 0;
+		margin: 0;
+		font-family: 'Open Sans', 'Oswald', Arial;
+		user-select: none;
+		background: #f5f5f5;
+	}
+	
+	</style>
+</head>
+<body>
+	<div class='wrapper'>
+	    <div class='header'>
+	        <div class='header-left'> 
+	            <div class='header-item' id='toggleModelBrowser'>
+	        <h2>🦕 Динозавроектор 🦕</h2><p><i>ㅤ(взято <a href="https://github.com/bytezeroseven/GLB-Viewer">звідси</a>)</i></p>
+	            </div>
+	            <input type='file' id='fileInput' style='display: none;' accept='.glb'>
+	            <label for='fileInput' class='header-item' id='browseModelBtn'>
+	            </label>
+	        </div>
+	        <div class='header-right'>
+	            <div class='header-item' id='downloadScreen'>
+	            </div>
+	            <div class='header-item' id='toggleShare'>
+	            </div>
+	        </div>
+	    </div>
+	    <div class='viewer-wrapper'>
+	        <div id='viewerCanvasWrapper'></div>
+	        <div class='slider-container' id='explodeSliderWrapper'  style='display: none;'>
+	            <div class='explode-content'>
+	                <input type='range' min='0' max='10' step='0.01' value='1' class='slider' id='explodeSlider'>
+	                    <input type="checkbox" id="explodeFace">
+	                    <span class="checkmark"></span>
+	                </label>
+	            </div>
+	        </div>
+	        <div class='left-sidebar' id='modelBrowser' style='display: none;'>
+	            <div class='sidebar-content' id='modelBrowserContent'>
+	                <div class='graph-item-wrapper'>
+	                    <div class='graph-item'>
+	                        <div class='graph-left'>
+	                            <div class='graph-folder'>
+	                            </div>
+	                            <div class='graph-name'>Test Scene</div>
+	                        </div>
+	                        <div class='graph-right'>
+	                            <div class='graph-visible'>
+	                                <i class='fa fa-eye'></i>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	        <div class='right-container'>
+	            <div id='orientCubeWrapper'></div>
+	        </div>
+	        <div class='share-sidebar' id='shareSidebar' style='display: none;'>
+	            <h1 class='sidebar-title'>Some content here!</h1>
+	        </div>
+	        <div class='loader' id='loader'>
+	            <div class='loader-text' id='loaderInfo'>Loading...</div>
+	            <div class='loader-spinner'></div>
+	        </div>
+	    </div>
+	    <div class='footer'>
+	        <div id='resetBtn'>
+	        </div>
+	        <div id='toggleMeasure'>
+	        </div>
+	        <div id='toggleOrbit'>
+	        </div>
+	        <div id='togglePan'>
+
+	        </div>
+	        <div id='toggleZoom'>
+	        </div>
+	        <div id='toggleExplode'>
+	        </div>
+	    </div>
+	</div>
+
+	<script src='vendor/three.min.js'></script>
+	<script src='vendor/OrbitControls.js'></script>
+	<script src='vendor/GLTFLoader.js'></script>
+	<script src='viewer.js'></script>
+	<script>
+	
+	window.onload = () => {
+		let v = Viewer();
+		v.loadModel('models/pistol.glb');
+	}
+
+	</script>
+</body>
+</html>
